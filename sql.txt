@@ -1,0 +1,22 @@
+-- basic info for all movies in db
+SELECT title FROM movie
+SELECT runningTime FROM movie WHERE title = PHPVarHere
+SELECT rating FROM movie WHERE title = PHPVarHere
+SELECT synopsis FROM movie WHERE title = PHPVarHere
+SELECT directorFName, directorLName FROM movie WHERE title = PHPVarHere
+
+-- cast for all movies
+SELECT fName, lname from moviecast as mc, movie as m WHERE m.title = mc.title
+
+-- cast for specific movies
+SELECT fName, lname from moviecast WHERE title = PHPVarHere
+
+-- advanced info for specific movies in db
+SELECT productionCompany FROM movie WHERE title = PHPVarHere
+SELECT supplierName FROM movie WHERE title = PHPVarHere
+
+-- admin actions --
+-- list all members
+SELECT loginID, userType FROM systemuser
+
+
