@@ -1,3 +1,47 @@
+------ CUSTOMER ACTIONS ------
+--- create account ---
+-- account creation
+INSERT INTO `systemuser` (`loginID`, `passwordHash`) VALUES ('VAR1', 'VAR2');
+
+--- reservations page ---
+-- see all current reservations
+SELECT 
+
+-- cancel a current reservation
+
+
+-- see past reservation history and written reviews
+
+
+-- add a review
+
+
+--- profile ---
+-- view current details
+(name)
+
+(address)
+
+(contact info)
+
+(payment info)
+
+
+-- update profile details
+(name)
+UPDATE customer SET fName = 'VAR1', lName= 'VAR2' WHERE accountNumber = currentCustomer;
+
+(address)
+UPDATE customer SET streetNum = 'VAR1', streetName = 'VAR2', town = 'VAR3', postalCode = 'VAR4' WHERE accountNumber = currentCustomer;
+
+(contact info)
+UPDATE customer SET email = 'VAR1' WHERE accountNumber = currentCustomer;
+UPDATE customerphonenumbers SET phoneNumber = 'VAR2' WHERE accountNumber = currentCustomer;
+
+(payment info)
+UPDATE customer SET creditcardNumber = 'VAR1', creditCardExpiryDate = 'VAR2' WHERE accountNumber = currentCustomer;
+
+--- browse movies ---
 -- basic info for all movies in db
 SELECT title FROM movie
 SELECT runningTime FROM movie WHERE title = PHPVarHere
@@ -15,8 +59,78 @@ SELECT fName, lname from moviecast WHERE title = PHPVarHere
 SELECT productionCompany FROM movie WHERE title = PHPVarHere
 SELECT supplierName FROM movie WHERE title = PHPVarHere
 
--- admin actions --
+-- show only movies in a specific complex
+
+
+-- show only movies with a certain rating or above
+
+
+--- purchase page (got here by clicking in specific movie) ---
+-- display available complexes for this movie
+
+
+-- max number of tickets that can be reserved
+
+
+-- add reservation
+
+
+------ ADMIN ACTIONS ------
+--- member management ---
 -- list all members
 SELECT loginID, userType FROM systemuser
+
+-- remove member
+
+
+-- show rental history of paticular member
+
+--- movie management ---
+-- add movie 
+(synopsis/rating/runtime/director)
+
+(cast)
+
+
+-- update movie showings (given a specific movie)
+
+
+-- update movie details 
+(synopsis)
+
+(rating)
+
+(runtime)
+
+(director)
+
+(cast)
+
+
+-- find most popular movies (gives all movies and the total tickets, ordered by the total tickets sold)
+SELECT m.title, COUNT(ticketsReserved) as totalTicketsReserved FROM (movie as m LEFT OUTER JOIN reservation as r ON m.title = r.title) GROUP BY title ORDER BY COUNT(ticketsReserved) DESC
+
+--- theater management ---
+-- add a theater complex (name/address/number of screens/phone number)
+
+
+-- update theater complex details
+(address)
+
+(number of screens)
+
+(phone number)
+
+-- update theater room details given a specific theater
+(screen size)
+
+(max capacity)
+
+
+-- update movie showings (given a specific theater complex)
+
+
+-- find most popular theatre complex (gives all theaters and the total tickets, ordered by the total tickets sold)
+SELECT m.theaterName, COUNT(ticketsReserved) as totalTicketsReserved FROM (theatercomplex as m LEFT OUTER JOIN reservation as r ON m.theaterName = r.theaterName) GROUP BY theaterName ORDER BY COUNT(ticketsReserved) DESC
 
 
