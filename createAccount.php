@@ -15,20 +15,24 @@ $accNum = $pass = $iD = $stNum = $stName = $tN = $pC = $eM = $fName = $lName = $
   #  $pass = trim($_POST["passwordHash"]);
   #
 
-$accNum=$_POST["accountNumber"];
-$pass=$_POST["passwordHash"];
-$pass=(string)$pass;
 $iD=$_POST["loginID"];
 $iD=(string)$iD;
-$stNum=$_POST["streetNum"];
-$stName=$_POST["streetName"];
-$tN=$_POST["town"];
-$pC=$_POST["postalCode"];
-$eM=$_POST["email"];
-$fName=$_POST["fname"];
-$lName=$_POST["lname"];
-$cCN=$_POST["creditCardNumber"];
-$cCED=$_POST["creditCardExpiryDate"];
+
+$pass=$_POST["passwordHash"];
+$pass=(string)$pass;
+
+#$accNum=$_POST["accountNumber"];
+
+
+#$stNum=$_POST["streetNum"];
+#$stName=$_POST["streetName"];
+#$tN=$_POST["town"];
+#$pC=$_POST["postalCode"];
+#$eM=$_POST["email"];
+#$fName=$_POST["fname"];
+#lName=$_POST["lname"];
+#cCN=$_POST["creditCardNumber"];
+#cCED=$_POST["creditCardExpiryDate"];
 
 try {
     $stmt = $dbh->query("insert into systemuser values ($iD,$pass,'c')");
