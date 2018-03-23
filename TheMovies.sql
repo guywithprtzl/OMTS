@@ -1,8 +1,9 @@
+-- phpMyAdmin SQL Dump
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2018 at 07:08 PM
+-- Generation Time: Mar 23, 2018 at 01:15 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `TheMovies`
+-- Database: `themovies`
 --
 
 -- --------------------------------------------------------
@@ -258,7 +259,7 @@ INSERT INTO `supplier` (`supplierName`, `streetNum`, `streetName`, `town`, `post
 
 CREATE TABLE `systemuser` (
   `loginID` varchar(25) NOT NULL,
-  `passwordHash` char(32) DEFAULT NULL,
+  `passwordHash` varchar(32) DEFAULT NULL,
   `userType` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
