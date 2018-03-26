@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 
 <table>
-    <tr><th>Title</th><th>Running Time</th><th>Rating</th><th>Synopsis</th><th>Select</th></tr>
+    <tr><th>Title</th><th>Running Time</th><th>Rating</th><th>Synopsis</th></tr>
 <?php
 /**
  * Created by PhpStorm.
@@ -19,19 +19,24 @@
 $dbh = new PDO('mysql:host=localhost;dbname=themovies', "root", "");
 $rows = $dbh->query("select title, runningTime, rating, synopsis from movie");
 foreach($rows as $row) {
-    echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr>";
+    $name = $row[0];
+    echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>
+    <form action=\"selectTimes.php\" method = \"post\">
+        <input type = \"hidden\" name=\"movie\" value = \"$name\">
+        <input type=\"submit\" name=\"submit\" value=\"Go\"><br>
+    </form>
+
+
+    </td></tr>";
+    echo $row[0];
 }
+
 
 
 
 $dbh = null;
 
 ?>
-
-
-    <form action="selectTime.php" method = "post">
-        <input type="submit" value="View Times">
-    </form>
 
 </table>
 </body>
