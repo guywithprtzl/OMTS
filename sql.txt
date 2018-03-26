@@ -5,10 +5,10 @@ INSERT INTO `systemuser` (`loginID`, `passwordHash`) VALUES ('VAR1', 'VAR2');
 
 --- reservations page ---
 -- see all current reservations
-SELECT 
+SELECT title, startTime, theaterNumber, theaterName, ticketsReserved FROM reservation WHERE accountNumber = PHPVarHere
 
 -- cancel a current reservation
-
+DELETE FROM reservation WHERE accountNumber = VAR1 AND title = VAR2 AND theaterName = VAR3 AND theaterNumber = VAR4 AND startTime = VAR5
 
 -- see past reservation history and written reviews
 
@@ -60,10 +60,12 @@ SELECT productionCompany FROM movie WHERE title = PHPVarHere
 SELECT supplierName FROM movie WHERE title = PHPVarHere
 
 -- show only movies in a specific complex
-
+SELECT title FROM movie as m NATURAL JOIN showing as s WHERE theaterName = PHPVarHere
 
 -- show only movies with a certain rating or above
 
+-- show all showings for a single movie
+SELECT title, theaterName, startTime FROM movie as m NATURAL JOIN showing as s WHERE title = PHPVarHere
 
 --- purchase page (got here by clicking in specific movie) ---
 -- display available complexes for this movie
@@ -73,7 +75,7 @@ SELECT supplierName FROM movie WHERE title = PHPVarHere
 
 
 -- add reservation
-
+INSERT INTO `reservation` (`accountNum`, `startTime`, `theaterName`, `theaterNumber`, `ticketsReserved`, `title` ) VALUES ('VAR1', 'VAR2', 'VAR3', 'VAR4', 'VAR5', 'VAR6');
 
 ------ ADMIN ACTIONS ------
 --- member management ---
