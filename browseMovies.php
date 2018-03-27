@@ -16,11 +16,17 @@
  * Time: 3:20 PM
  */
 
-$dbh = new PDO('mysql:host=localhost;dbname=themovies', "root", "");
-$rows = $dbh->query("select title, runningTime, rating, synopsis from movie");
-foreach($rows as $row) {
-    $name = $row[0];
-    echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td><td>
+$dbh = mysqli_connect('127.0.0.1', "root", "", "themovies");
+if (mysqli_connect_errno()){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$query = mysqli_query($dbh,"select title, runningTime, rating, synopsis from movie");
+if($query == NULL){
+    echo "NULL Query";
+}
+while($row = mysqli_fetch_array($query)) {
+    $name = $row['title'];
+    echo "<tr><td>".$row['title']."</td><td>".$row['runningTime']."</td><td>".$row['rating']."</td><td>".$row['synopsis']."</td><td>
     <form action=\"selectTimes.php\" method = \"post\">
         <input type = \"hidden\" name=\"movie\" value = \"$name\">
         <input type=\"submit\" name=\"submit\" value=\"Go\"><br>
@@ -33,7 +39,7 @@ foreach($rows as $row) {
 
 
 
-$dbh = null;
+/*mysqli_close($dbh);*/
 
 ?>
 
