@@ -42,6 +42,9 @@ UPDATE customerphonenumbers SET phoneNumber = 'VAR2' WHERE accountNumber = curre
 UPDATE customer SET creditcardNumber = 'VAR1', creditCardExpiryDate = 'VAR2' WHERE accountNumber = currentCustomer;
 
 --- browse movies ---
+-- basic info for all movies in db plus what complex they are playing at
+SELECT title, runningTime, rating, synopsis, GROUP_CONCAT(DISTINCT theaterName) AS showingAt FROM movie NATURAL JOIN showing GROUP BY title
+
 -- basic info for all movies in db
 SELECT title FROM movie
 SELECT runningTime FROM movie WHERE title = PHPVarHere
