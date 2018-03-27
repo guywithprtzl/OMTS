@@ -28,7 +28,6 @@ foreach($rows as $row) {
 
 
     </td></tr>";
-    echo $row[0];
 }
 
 
