@@ -27,7 +27,7 @@ if($query == NULL){
 while($row = mysqli_fetch_array($query)) {
     $name = $row['title'];
     echo "<tr><td>".$row['title']."</td><td>".$row['runningTime']."</td><td>".$row['rating']."</td><td>".$row['synopsis']."</td><td>
-    <form action=\"selectTimes.php\" method = \"post\">
+    <form action=\"selectTimes2.php\" method = \"post\">
         <input type = \"hidden\" name=\"movie\" value = \"$name\">
         <input type=\"submit\" name=\"submit\" value=\"Go\"><br>
     </form>

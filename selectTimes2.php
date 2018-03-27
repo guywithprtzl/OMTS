@@ -15,16 +15,19 @@
      * Date: 2018-03-26
      * Time: 4:04 PM
      */
-
-    $dbh = mysqli_connect("localhost", "root", "","themovies");
-
+    
     $movie=$_POST["movie"];
 
-    $rows = $dbh->query('select startTime,theaterNumber, theaterName from showing where title = "Phil The Thrill And The Reckless Kill"');
-
-
-    foreach($rows as $row) {
-        echo "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td></tr>";
+    $dbh = mysqli_connect('127.0.0.1', "root", "", "themovies");
+    if (mysqli_connect_errno()){
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    $query = mysqli_query($dbh,"select startTime,theaterNumber, theaterName from showing where title = '$movie'");
+    if($query == NULL){
+        echo "NULL Query";
+    }
+    while($row = mysqli_fetch_array($query)) {
+        echo "<tr><td>".$row['startTime']."</td><td>".$row['theaterNumber']."</td><td>".$row['theaterName']."</td></tr>";
     }
 
 
