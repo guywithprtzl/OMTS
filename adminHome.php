@@ -17,11 +17,16 @@ if (mysqli_connect_errno()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $query = mysqli_query($dbh,"select title, runningTime, rating, synopsis from movie");
-
+$query1 = mysqli_query($dbh, "SELECT m.title, COUNT(ticketsReserved) as totalTicketsReserved FROM (movie as m LEFT OUTER JOIN reservation as r ON m.title = r.title) GROUP BY title ORDER BY COUNT(ticketsReserved) DESC");
+$query2 = mysqli_query($dbh, "SELECT m.theaterName, COUNT(ticketsReserved) as totalTicketsReserved FROM (theatercomplex as m LEFT OUTER JOIN reservation as r ON m.theaterName = r.theaterName) GROUP BY theaterName ORDER BY COUNT(ticketsReserved) DESC");
 $loginID = $_POST["loginID"];
 if($query == NULL){
     echo "NULL Query";
 }
+$row1 = mysqli_fetch_array($query1);
+echo "Most Popular Movie: $row1[0], with $row1[1] tickets reserved";
+$row2 = mysqli_fetch_array($query2);
+echo "Most Popular Theater: $row2[0], with $row2[1] tickets reserved";
 echo "
 <form action=\"memberManagement.php\" method = \"post\">
         <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
