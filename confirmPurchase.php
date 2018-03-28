@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Online Movie Database System</title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="omtscss.css">
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -45,7 +52,7 @@ if (mysqli_query($dbh,
         }
     }
     else{
-        echo "your account number is:";
+        echo "Your account number is: ";
         echo $accNum;
         echo "<a href=\homePageHTML.html\">Error. There are not enough tickets to satisfy your request. Click here to go home</a>";
     }

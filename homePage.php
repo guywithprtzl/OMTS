@@ -3,8 +3,7 @@
 <html>
 <body>
 
-
-
+<h3>Login confirmed.</h3>
 <?php
 $dbh = mysqli_connect('127.0.0.1', "root", "", "themovies");
 if (mysqli_connect_errno()){
