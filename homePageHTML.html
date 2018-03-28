@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Online Movie Database System</title>
+<head>
+	<title>Online Movie Database System</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="omtscss.css">
+</head>
+
 <body>
-<meta charset="UTF-8">
-
-
 
 <h1>Login or Create an Account</h1>
 
-<form action="homePage.php" method = "post">
-    <p>userID:</p>
-    <input type="text" name="userID"><br>
-    <p>Password:</p>
-    <input type="text" name="password"><br>
-    <input type="submit" value="Submit">
-</form>
+<div class="form">
+	<form action="homePage.php" method = "post">
+		<label for="userID">userID:</label>
+		<input type="text" id = "userID" name="userID">
+		
+		<label for="password">Password:</label>
+		<input type="text" id = "password" name="password">
+		
+		<input type="submit" value="Submit">
+	</form>
+</div>
 
-<a href="createAccountHTML.html">Create Account</a>
+<div class="center">
+	<a href="createAccountHTML.html">Create Account</a>
+</div>
 
 </body>
 </html>

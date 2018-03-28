@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Purchase</title>
+	<link rel="stylesheet" href="omtscss.css">
 </head>
+
 <body>
 <h1>Buy Some Tickets</h1>
 <form action=\"createAccount.php\" method = \"post\">
