@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+	<link rel="stylesheet" href="omtscss.css">
 </head>
+
 <?php
 /**
  * Created by PhpStorm.
@@ -24,11 +26,11 @@ if($query == NULL){
     echo "NULL Query";
 }
 $row1 = mysqli_fetch_array($query1);
-echo "Most Popular Movie: $row1[0], with $row1[1] tickets reserved";
+echo "<table><tr><th>Most Popular Movie</th><th>Tickets Reserved</th></tr><tr><td>".$row1[0]."</td><td>".$row1[1]."</td></tr></table>";
 $row2 = mysqli_fetch_array($query2);
 echo "<br>";
-echo "Most Popular Theater: $row2[0], with $row2[1] tickets reserved";
-echo "
+echo "<table><tr><th>Most Popular Theater</th><th>Tickets Reserved</th></tr><tr><td>".$row2[0]."</td><td>".$row2[1]."</td></tr></table>";
+echo "<br>
 <form action=\"memberManagement.php\" method = \"post\">
         <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
         <input type= \"submit\" name=\"submit\" value=\"Manage Members\"><br>
@@ -45,5 +47,4 @@ echo "
 
 $dbh = null;
 ?>
-</body>
 </html>

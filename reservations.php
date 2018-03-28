@@ -9,7 +9,7 @@
 <body>
 
 <table>
-<tr><th>Movie</th><th>Tickets Reserved</th><th>Theater Name</th><th>Theater Number</th><th>Start Time</th><th></th></tr>
+<tr><th>Movie</th><th>Tickets Reserved</th><th>Theater Name</th><th>Theater Number</th><th>Start Time</th></tr>
 
 <?php
 /**

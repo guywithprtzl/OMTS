@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Online Movie Database System</title>
+    <meta charset="UTF-8">
+	<link rel="stylesheet" href="omtscss.css">
+</head>
+
 <?php
 /**
  * Created by PhpStorm.
@@ -18,7 +26,8 @@ if($query != NULL){
     echo"
     
     
-     <h3>Here you can update your Theater info</h3>
+     <h3>Here you can update your Theater info:</h3>
+	 <div class=\"form\">
      <form action=\"theaterManagementInputPage.php\" method = \"post\">
      <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
      <input type = \"hidden\" name=\"theaterName\" value = \"$row[theaterName]\">
@@ -29,7 +38,8 @@ if($query != NULL){
     Phone:<input type=\"text\" name=\"phoneNumber\" value=\"$row[phoneNumber]\"><br>
     Number of Screens:<input type=\"text\" name=\"numberOfScreens\" value=\"$row[numberOfScreens]\"><br>
     <input type=\"submit\" value=\"Update Info\">
-</form>";
+</form>
+</div>";
 }
 else{
     echo "<h3>Here you can update your Theater info</h3>
