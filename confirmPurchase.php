@@ -11,13 +11,8 @@ $dbh = mysqli_connect('127.0.0.1', "root", "", "themovies");
 if (mysqli_connect_errno()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-
-$stmt = mysqli_prepare($dbh,"insert into customer (accountNumber,loginID,streetNum,streetName,town,postalCode,
-                      email,fName,lName,creditCardNumber,creditCardExpiryDate) 
-                      values(?,?,?,?,?,?,?,?,?,?,?)");
-mysqli_stmt_bind_param($stmt,'sss',$accNum,$id,$stNum,$stName,$tN,$pC,$eM,$fName,$lName,$cCN,$cCED);
-
-$id=$_POST["loginID"];
+# Personal Info
+$iD=$_POST["loginID"];
 $stNum=$_POST["streetNum"];
 $stName=$_POST["streetName"];
 $tN=$_POST["town"];
@@ -28,7 +23,37 @@ $lName=$_POST["lname"];
 $cCN=$_POST["creditCardNumber"];
 $cCED=$_POST["creditCardExpiryDate"];
 $accNum=$_POST["accountNumber"];
+$tix = $_POST["tix"];
 
+#movie info
+$movie = $_POST["movie"];
+$startTime = $_POST["startTime"];
+$seatsAvailable = $_POST["seatsAvailable"];
+$theaterNumber = $_POST["theaterNumber"];
+$theaterName = $_POST["theaterName"];
+
+if (mysqli_query($dbh,
+    "insert into customer (accountNumber, loginID,streetNum,streetName,town,postalCode,email,fName,lName,creditCardNumber,creditCardExpiryDate)
+            values ('$accNum','$iD','$stNum','$stName','$tN','$pC','$eM','$fName','$lName','$cCN','$cCED')")){
+    if ($tix < $seatsAvailable){
+        if (mysqli_query($dbh,"insert into reservation  
+          (ticketsReserved,startTime,theaterNumber,title,theaterName,accountNumber) VALUES 
+          ('$tix','$startTime','$theaterNumber','$movie','$theaterName','$accNum')")){
+            echo "your account number is:";
+            echo $accNum;
+            echo "<br><a href=\"homePageHTML.html\">Tickets Reserved. Click here to go home</a>";
+        }
+    }
+    else{
+        echo "your account number is:";
+        echo $accNum;
+        echo "<a href=\homePageHTML.html\">Error. There are not enough tickets to satisfy your request. Click here to go home</a>";
+    }
+
+}
+else{
+    echo "There was an error in creating your account. Please go back and try again";
+}
 
 
 

@@ -8,7 +8,7 @@
 
 <body>
 <h1>Buy Some Tickets</h1>
-<form action=\"createAccount.php\" method = \"post\">
+
 
 
 <?php
@@ -28,6 +28,7 @@ $startTime = $_POST["startTime"];
 $seatsAvailable = $_POST["seatsAvailable"];
 $theaterName = $_POST["theaterName"];
 $theaterNumber = $_POST["theaterNumber"];
+$loginID = $_POST["loginID"];
 
 #$movie;
 #echo $startTime;
@@ -41,13 +42,33 @@ if($query == NULL){
 }
 #while($row = mysqli_fetch_array($query)) {;}
 
-    echo"<form action=\".php\" method = \"post\">
+
+
+
+    echo"
+    <h3>Enter your account number if this is not your first purchase</h3>
+    <form action=\"confirmPurchaseWithAccount.php\" method = \"post\">
+    <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
+    Number of Tickets:<input type = \"text\" name = \"tix\" value = \"\">
+    Account Number: <input type = \"text\" name =\"accountNumber\" value=\"choose exactly 10 digits for your account number\"><br>
+    <input type=\"submit\" value=\"Submit\">
+    <form action=\"confirmPurchase.php\" method = \"post\">
+    <input type = \"hidden\" name=\"movie\" value = \"$movie\">
+    <input type = \"hidden\" name=\"startTime\" value = \"$startTime\">
+    <input type = \"hidden\" name=\"seatsAvailable\" value = \"$seatsAvailable\">
+    <input type = \"hidden\" name=\"theaterNumber\" value = \"$theaterNumber\">
+    <input type = \"hidden\" name=\"theaterName\" value = \"$theaterName\">
+    </form>
+    
+    <h3>If this is your first purchase, fill in this form to create a customer account</h3>
+    <form action=\"confirmPurchase.php\" method = \"post\">
     <input type = \"hidden\" name=\"movie\" value = \"$movie\">
     <input type = \"hidden\" name=\"startTime\" value = \"$startTime\">
     <input type = \"hidden\" name=\"seatsAvailable\" value = \"$seatsAvailable\">
     <input type = \"hidden\" name=\"theaterNumber\" value = \"$theaterNumber\">
     <input type = \"hidden\" name=\"theaterName\" value = \"$theaterName\">
     <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
+    Number of Tickets:<input type = \"text\" name = \"tix\" value = \"\">
     First Name: <input type=\"text\" name=\"fname\" value=\"\"><br>
     Last Name: <input type=\"text\" name=\"lname\" value=\"\"><br>
     Account Number: <input type = \"text\" name =\"accountNumber\" value=\"choose 10 numbers\"><br>

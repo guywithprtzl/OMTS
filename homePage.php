@@ -21,8 +21,8 @@ if($query == NULL){
 }
 while($row = mysqli_fetch_array($query)) {
     if ($row['userType'] == 'c'){
-        echo "<form action=\"customerHome.html\" method = \"post\">
-        <input type = \"hidden\" name=\"loginID\" value = $row[0]>
+        echo "<form action=\"customerHome.php\" method = \"post\">
+        <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
         <input type=\"submit\" name=\"submit\" value=\"Continue\"><br>
     </form>";
     }

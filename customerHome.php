@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <?php
 /**
  * Created by PhpStorm.
@@ -11,10 +17,27 @@ if (mysqli_connect_errno()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $query = mysqli_query($dbh,"select title, runningTime, rating, synopsis from movie");
+
+$loginID = $_POST["loginID"];
 if($query == NULL){
     echo "NULL Query";
 }
-while($row = mysqli_fetch_array($query)) {;}
+ echo "
+<form action=\"browseMovies.php\" method = \"post\">
+        <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
+        <input type= \"submit\" name=\"submit\" value=\"Browse Movies\"><br>
+    </form>
+<form action=\"reservations.php\" method = \"post\">
+        <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
+        <input type=\"submit\" name=\"submit\" value=\"View Reservations\"><br>
+    </form>
+<form action=\"profile.php\" method = \"post\">
+        <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
+        <input type=\"submit\" name=\"submit\" value=\"View Profile\"><br>
+    </form>";
 
 
 $dbh = null;
+?>
+</body>
+</html>
