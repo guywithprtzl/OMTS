@@ -2,9 +2,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<title>Online Movie Database System</title>
+<head>
+	<title>Online Movie Database System</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="omtscss.css">
+</head>
+
 <body>
-<meta charset="UTF-8">
 
 <table>
     <tr><th>Title</th><th>Running Time</th><th>Rating</th><th>Synopsis</th></tr>
