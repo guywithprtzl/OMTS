@@ -26,6 +26,7 @@ if($query == NULL){
 $row1 = mysqli_fetch_array($query1);
 echo "Most Popular Movie: $row1[0], with $row1[1] tickets reserved";
 $row2 = mysqli_fetch_array($query2);
+echo "<br>";
 echo "Most Popular Theater: $row2[0], with $row2[1] tickets reserved";
 echo "
 <form action=\"memberManagement.php\" method = \"post\">
