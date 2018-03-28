@@ -17,6 +17,7 @@
      */
     
     $movie=$_POST["movie"];
+    $loginID = $_POST["loginID"];
 
     $dbh = mysqli_connect('127.0.0.1', "root", "", "themovies");
     if (mysqli_connect_errno()){
