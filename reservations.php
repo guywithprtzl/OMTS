@@ -14,4 +14,7 @@ $query = mysqli_query($dbh,"select title, runningTime, rating, synopsis from mov
 if($query == NULL){
     echo "NULL Query";
 }
+
+
+
 while($row = mysqli_fetch_array($query)) {;}

@@ -30,6 +30,9 @@ if (mysqli_query($dbh,
           ('$tix','$startTime','$theaterNumber','$movie','$theaterName','$accNum')")){
                 echo "<a href=\"homePageHTML.html\">Tickets Reserved. Click here to go home</a>";
             }
+
+            else echo "<h3>Looks like you already reserved these tickets</h3>";
+
         }
         else{
             echo "<a href=\homePageHTML.html\">Error. There are not enough tickets to satisfy your request. Click here to go home</a>";
