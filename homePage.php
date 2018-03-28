@@ -26,8 +26,14 @@ while($row = mysqli_fetch_array($query)) {
         <input type=\"submit\" name=\"submit\" value=\"Continue\"><br>
     </form>";
     }
+    elseif ($row['userType'] == 'a'){
+        echo "<form action=\"adminHome.php\" method = \"post\">
+        <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
+        <input type=\"submit\" name=\"submit\" value=\"Continue\"><br>
+        </form>";
+    }
     else{
-        echo"<h1>Not a customer</h1>";
+        echo "not customer or admin";
     }
 }
 ?>

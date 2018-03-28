@@ -270,7 +270,8 @@ CREATE TABLE `systemuser` (
 INSERT INTO `systemuser` (`loginID`, `passwordHash`, `userType`) VALUES
 ('Brayden', 'kjkjkjkjkjfdfdfdfdfdklklklklkg61', 'c'),
 ('Reid', 'kjkjkjkjkjfdfdfdfdfdklklklklkg69', 'c'),
-('Sean', 'kjkjkjkjkjfdfdfdfdfdklklklklkg62', 'c');
+('Sean', 'kjkjkjkjkjfdfdfdfdfdklklklklkg62', 'c'),
+('admin', 'adminadminadminadminadminadminpw', 'a');
 
 -- --------------------------------------------------------
 
