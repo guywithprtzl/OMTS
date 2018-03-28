@@ -10,6 +10,19 @@ echo "could not connect" ;
 else
 {
 echo "connected";
+    echo "<h1>++++</h1>";
+    $loginID = "Brayden";
+    $passwordHash = "kjkjkjkjkjfdfdfdfdfdklklklklkg61";
+    $query = mysqli_query($con,"select loginID, passwordHash, userType from systemuser ");
+    if($query == NULL){
+        echo "NULL Query";
+    }
+    while($row = mysqli_fetch_array($query)) {
+        echo "<h1>++++</h1>";
+        echo $row["loginID"];
+        echo $row["passwordHash"];
+        echo $row["userType"];
+    }
 }
 ?>
 

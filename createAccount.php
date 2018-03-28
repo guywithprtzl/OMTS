@@ -9,20 +9,31 @@ $dbh = mysqli_connect("localhost", "root", "","themovies");
 
 $accNum = $pass = $iD = $stNum = $stName = $tN = $pC = $eM = $fName = $lName = $cCN = $cCED = $uT ="";
 
-$stmt = mysqli_prepare($dbh,"insert into systemuser (loginID,passwordHash,userType) values(?,?,?)");
-mysqli_stmt_bind_param($stmt,'sss',$id,$pass,$tP);
-
 
 $iD=$_POST["loginID"];
-$iD = "$iD";
+
 $passC =$_POST["passwordConfirm"];
-$passC = "$passC";
+
 $pass=$_POST["passwordHash"];
-$pass = "$pass";
+#$stmt = mysqli_query($dbh,"insert into systemuser (loginID,passwordHash,userType) values(?,?,?)");
+#mysqli_stmt_bind_param($stmt,'sss','$id','$pass','$tP');
+
+
+
+
 $tP = "c";
 
+echo $iD;
+echo $passC;
+echo $pass;
+echo $tP;
+
 if ($passC == $pass) {
-    mysqli_stmt_execute($stmt);
+    if(mysqli_query($dbh,"insert into systemuser (loginID,passwordHash,userType) values('$iD','$passC','$tP')")){
+        echo "<h1>it worked</h1>";
+    }
+    echo "<a href=\"homePageHTML.html\">Click here to return to the login page</a>";
+    echo"";
 }
 else
     echo $pass;
