@@ -34,7 +34,7 @@ if($query == NULL){
 <form action=\"profile.php\" method = \"post\">
         <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
         <input type=\"submit\" name=\"submit\" value=\"View Profile\"><br>
-    </form>;
+    </form>
 <form action=\"review.php\" method = \"post\">
         <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
         <input type=\"submit\" name=\"submit\" value=\"Review a Movie\"><br>
