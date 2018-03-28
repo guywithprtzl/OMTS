@@ -19,6 +19,7 @@
  */
 
 $dbh = mysqli_connect('127.0.0.1', "root", "", "themovies");
+$loginID=$_POST["loginID"];
 if (mysqli_connect_errno()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
@@ -33,6 +34,12 @@ while($row = mysqli_fetch_array($query)) {
     echo"<tr><td>".$row['title']."</td><td>".$row['ticketsReserved']."</td><td>".$row['theaterName']."</td><td>".$row['theaterNumber']."</td><td>".$row['startTime']."</td>
     <td>
     <form action=\"clearReservation.php\" method = \"post\">
+         <input type = \"hidden\" name=\"startTime\" value = \"$row[4]\">
+        <input type = \"hidden\" name=\"theaterNumber\" value = \"$row[3]\">
+        <input type = \"hidden\" name=\"theaterName\" value = \"$row[2]\">
+        <input type = \"hidden\" name=\"ticketsReserved\" value = \"$row[1]\">
+        <input type = \"hidden\" name=\"title\" value = \"$row[0]\">
+        <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
         <input type=\"submit\" name=\"submit\" value=\"Remove Reservation\"><br>
     </form>
     </td>

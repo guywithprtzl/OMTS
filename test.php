@@ -11,9 +11,9 @@ else
 {
 echo "connected";
     echo "<h1>++++</h1>";
-    $loginID = "admin";
-    $passwordHash = "adminadminadminadminadminadminpw";
-    $query = mysqli_query($con,"insert into systemuser (loginID,passwordHash,userTpye)");
+    $loginID = "Brayden";
+    $passwordHash = "kjkjkjkjkjfdfdfdfdfdklklklklkg61";
+    $query = mysqli_query($con,"insert into systemuser (loginID,passwordHash,userType)");
     if($query == NULL){
         echo "NULL Query";
     }
