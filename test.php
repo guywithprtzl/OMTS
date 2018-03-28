@@ -13,7 +13,7 @@ echo "connected";
     echo "<h1>++++</h1>";
     $loginID = "Brayden";
     $passwordHash = "kjkjkjkjkjfdfdfdfdfdklklklklkg61";
-    $query = mysqli_query($con,"insert into systemuser (loginID,passwordHash,userTpye)");
+    $query = mysqli_query($con,"insert into systemuser (loginID,passwordHash,userType)");
     if($query == NULL){
         echo "NULL Query";
     }
