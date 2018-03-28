@@ -23,7 +23,7 @@ if($query == NULL){
     echo "NULL Query";
 }
 echo "
-<form action=\"memberManagement.php.php\" method = \"post\">
+<form action=\"memberManagement.php\" method = \"post\">
         <input type = \"hidden\" name=\"loginID\" value = \"$loginID\">
         <input type= \"submit\" name=\"submit\" value=\"Manage Members\"><br>
     </form>
